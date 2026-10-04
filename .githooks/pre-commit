@@ -1,0 +1,7 @@
+#!/bin/sh
+# Secret scan on staged changes. Needs gitleaks (brew install gitleaks); skipped with a warning if absent (CI still scans).
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --redact -v || { echo "Possible secret in staged changes. Commit blocked." >&2; exit 1; }
+else
+  echo "warning: gitleaks not installed, local secret scan skipped (CI will still run it)" >&2
+fi

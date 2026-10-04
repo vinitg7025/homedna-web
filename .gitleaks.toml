@@ -1,0 +1,6 @@
+title = "HomeDNA gitleaks config"
+[extend]
+useDefault = true
+[allowlist]
+description = "Placeholders and test fixtures"
+paths = ['''\.env\.example$''', '''test_.*\.py$''', '''\.lock\.txt$''', '''package-lock\.json$''']

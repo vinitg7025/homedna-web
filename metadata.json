@@ -1,0 +1,6 @@
+{
+  "name": "HomeDNA",
+  "description": "Discover your home compatibility before you start looking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

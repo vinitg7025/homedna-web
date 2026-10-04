@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-canela: "Cormorant Garamond", "Playfair Display", serif;
+  --font-soehne: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-midnight: #1B2A4A;
+  --color-off-white: #F8F7F4;
+  --color-parchment: #F0EDE6;
+  --color-gold: #C9A84C;
+  --color-stone: #7E7C74;
+  --color-charcoal: #1E2022;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #F8F7F4;
+  color: #1E2022;
+  font-family: var(--font-soehne);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F0EDE6;
+}
+::-webkit-scrollbar-thumb {
+  background: #7E7C74;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1B2A4A;
+}
+
+/* Blueprint pattern grid background */
+.blueprint-grid-dark {
+  background-image: 
+    linear-gradient(rgba(201, 168, 76, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.blueprint-grid-light {
+  background-image: 
+    linear-gradient(rgba(27, 42, 74, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 42, 74, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Subtle pulse border animation */
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: rgba(201, 168, 76, 0.2);
+  }
+  50% {
+    border-color: rgba(201, 168, 76, 0.6);
+  }
+}
+
+.pulse-border-gold {
+  animation: pulse-border 3s infinite;
+}
+
+/* Page transitions */
+.fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-horizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-bounce-horizontal {
+  animation: bounce-horizontal 1.2s infinite;
+}
