@@ -17,53 +17,51 @@ export default function About() {
         </div>
       </section>
 
-      {/* FOUNDER SECTION */}
+      {/* STORY SECTION - Editorial, typography only */}
       <section className="bg-off-white py-24 px-6 border-b border-stone/15">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          
-          {/* Founder portrait - Editorial, B&W */}
-          <div className="aspect-[3/4] max-w-sm mx-auto rounded-xl overflow-hidden border border-stone/25 shadow-md relative">
-            <img 
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600" 
-              alt="Vikram Nair, Founder of HomeDNA" 
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover grayscale contrast-115"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-midnight/20 to-transparent" />
-            <div className="absolute bottom-3 left-3 bg-off-white/95 px-2.5 py-0.5 rounded text-[8px] font-mono text-stone tracking-widest uppercase">
-              VIKRAM NAIR, FOUNDER
-            </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="max-w-[640px] font-canela text-lg sm:text-[20px] text-charcoal leading-[1.8] space-y-8 text-left">
+            <p>
+              For more than 40 years, we have been part of thousands of real estate transactions
+              and have watched people search for homes across generations.
+            </p>
+
+            <p className="text-midnight">We saw a pattern.</p>
+
+            <p>
+              Buyers compare bedrooms, locations, prices, amenities and floor plans.
+              They become experts at evaluating the property.
+              Yet the deeper question often remains unanswered.
+            </p>
+
+            <p className="border-l-2 border-gold pl-6 py-1 text-2xl sm:text-[26px] text-midnight leading-snug">
+              Will this home work for me and the life I want to live?
+            </p>
+
+            <p>
+              A home is more than a financial transaction. It is where you sleep, work, recover,
+              build relationships and spend much of your life.
+            </p>
+
+            <p>We believe serious buyers deserve a structured way to understand that fit.</p>
+
+            <p>
+              HomeDNA brings together millennia of Vedic spatial knowledge with personality science
+              to help people understand the relationship between{' '}
+              <span className="text-midnight font-medium">who they are and where they live</span>.
+            </p>
+
+            <p>
+              We built HomeDNA to make this guidance accessible before one of life's biggest decisions.
+            </p>
           </div>
 
-          {/* Founder Statement */}
-          <div className="space-y-6 text-left">
-            <span className="font-soehne text-[10px] text-stone font-bold uppercase tracking-widest block">
-              LETTER FROM THE FOUNDER
-            </span>
-            
-            <div className="font-canela text-lg sm:text-[20px] text-charcoal leading-relaxed space-y-6">
-              <p>
-                I watched hundreds of friends search for apartments.
-                They focused on bedrooms and price.
-                Yet, they ended up feeling drained or unfocused in their new space.
-              </p>
-              <p>
-                The market treats homes as simple financial transactions.
-                But a home is where your life unfolds.
-                I believe serious buyers deserve structured spatial guidance.
-              </p>
-              <p>
-                We built HomeDNA to combine millennia of Vedic logic with personality science.
-                It is designed to find where you truly belong.
-              </p>
-            </div>
-
-            <div className="pt-6 border-t border-stone/15">
-              <h4 className="font-soehne text-sm font-semibold text-midnight">Vikram Nair</h4>
-              <p className="font-soehne text-xs text-stone">Founder, HomeDNA</p>
-            </div>
+          {/* Closing statement */}
+          <div className="max-w-[720px] mt-16 pt-10 border-t border-stone/15 text-left">
+            <p className="font-canela text-3xl sm:text-[36px] font-light text-midnight leading-tight">
+              Because finding the right home should begin with understanding the person who will live in it.
+            </p>
           </div>
-
         </div>
       </section>
 
