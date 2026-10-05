@@ -179,6 +179,11 @@ export default function Start({ onNavigate, answers, setAnswers }: StartProps) {
     return false;
   };
 
+  const PROFILE_TABS = ['astro', 'tipi', 'behavioral', 'lifestyle'] as const;
+  const PROFILE_TAB_LABELS: Record<string, string> = {
+    astro: 'Astro-Vastu', tipi: 'Personality (2A)', behavioral: 'Proxy scenarios (2B)', lifestyle: 'Usage & rest (2C)'
+  };
+
   const isProfileStepReady = (): boolean => {
     return answers.adults.every(adult => 
       isAdultTabComplete(adult, 'astro') && 
@@ -1018,7 +1023,10 @@ export default function Start({ onNavigate, answers, setAnswers }: StartProps) {
           <div className="pt-6 border-t border-stone/15 flex justify-between">
             <button
               onClick={() => {
-                if (activeAdultIndex > 0) {
+                const i = PROFILE_TABS.indexOf(profileSubTab);
+                if (i > 0) {
+                  setProfileSubTab(PROFILE_TABS[i - 1]);
+                } else if (activeAdultIndex > 0) {
                   setActiveAdultIndex(prev => prev - 1);
                   setProfileSubTab('lifestyle');
                 } else {
@@ -1032,17 +1040,24 @@ export default function Start({ onNavigate, answers, setAnswers }: StartProps) {
 
             <button
               onClick={() => {
-                if (activeAdultIndex < answers.numAdults - 1) {
+                const i = PROFILE_TABS.indexOf(profileSubTab);
+                if (i < PROFILE_TABS.length - 1) {
+                  setProfileSubTab(PROFILE_TABS[i + 1]);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else if (activeAdultIndex < answers.numAdults - 1) {
                   setActiveAdultIndex(prev => prev + 1);
                   setProfileSubTab('astro');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
                   setStep('design_intent');
                 }
               }}
-              disabled={!isAdultTabComplete(activeAdult, 'astro')}
+              disabled={!isAdultTabComplete(activeAdult, profileSubTab)}
               className="bg-midnight disabled:opacity-40 hover:bg-gold hover:text-midnight text-off-white font-soehne text-xs font-bold uppercase tracking-widest py-3.5 px-8 rounded transition-all flex items-center gap-1.5 cursor-pointer"
             >
-              {activeAdultIndex < answers.numAdults - 1 ? (
+              {profileSubTab !== 'lifestyle' ? (
+                <>NEXT: {PROFILE_TAB_LABELS[PROFILE_TABS[PROFILE_TABS.indexOf(profileSubTab) + 1]]} <ArrowRight className="w-4 h-4" /></>
+              ) : activeAdultIndex < answers.numAdults - 1 ? (
                 <>NEXT RESIDENT <ArrowRight className="w-4 h-4" /></>
               ) : (
                 <>CONTINUE TO DESIGN INTENT <ArrowRight className="w-4 h-4" /></>
